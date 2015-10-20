@@ -7,6 +7,19 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+//**********Aditions*************
+var mongoose = require('mongoose');
+//mongoose.connect('mongodb://localhost/mobile-hope')
+mongoose.connect('mongodb://cce:cce@ds051883.mongolab.com:51883/mobile-hope');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function (callback) {
+  // yay!
+});
+//
+var Category = require('./model');
+var Item = require('./model');
+//************EOA**********************************
 
 var app = express();
 
