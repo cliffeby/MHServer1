@@ -17,8 +17,8 @@ db.once('open', function (callback) {
   // yay!
 });
 //
-var Category = require('./model');
-var Item = require('./model');
+var Category = require('./catModel');
+var Item = require('./itemModel');
 //************EOA**********************************
 
 var app = express();

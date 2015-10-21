@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var Category = require('../model');
-var Item = require('../model');
+var Category = require('../catModel');
+var Item = require('../itemModel');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -22,7 +22,7 @@ router.get('/items', function (req, res, next) {
   Item.find(function (err, allItems) {
     if (err) res.send(err);
     res.send(allItems);
-
+console.log(allItems);
   });
 });
 
