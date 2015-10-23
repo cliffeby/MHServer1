@@ -9,26 +9,28 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 //**********Aditions*************
 var mongoose = require('mongoose');
+var cors = require('cors');
 //mongoose.connect('mongodb://localhost/mobile-hope')
 mongoose.connect('mongodb://cce:cce@ds051883.mongolab.com:51883/mobile-hope');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
-  // yay!
-});
+//var db = mongoose.connection;
+//db.on('error', console.error.bind(console, 'connection error:'));
+//db.once('open', function (callback) {
+//  // yay!
+//});
 //
 var Category = require('./catModel');
 var Item = require('./itemModel');
 //************EOA**********************************
 
 var app = express();
-
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

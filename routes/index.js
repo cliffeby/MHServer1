@@ -20,9 +20,10 @@ router.get('/categories', function (req, res, next) {
 ///* GET Items page. */
 router.get('/items', function (req, res, next) {
   Item.find(function (err, allItems) {
-    if (err) res.send(err);
-    res.send(allItems);
-console.log(allItems);
+    if (err) res.status(400).send(err);
+    else {
+      res.send(allItems);
+    }
   });
 });
 

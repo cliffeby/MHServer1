@@ -26,45 +26,8 @@ var CategorySchema = new Schema({
     categoryId: {
         type: Number
     }
-},
-    {collection: 'categories'}
-);
+});
 
-/**
- * Inventory Schema
- */
-//var ItemSchema = new Schema({
-//    created: {
-//        type: Date,
-//        default: Date.now
-//    },
-//    itemTitle: {
-//        type: String,
-//        default: '',
-//        trim: true,
-//        required: 'Title cannot be blank'
-//    },
-//    itemId: {
-//        type: Number
-//    },
-//    itemSize: {
-//        type: String,
-//        default: '',
-//        trim: true
-//    },
-//    itemCondition: {
-//        type: String,
-//        default: '',
-//        trim: true
-//    },
-//    itemColor: {
-//        type: String,
-//        default: '',
-//        trim: true
-//    }
-//},
-//    {collections: 'allItems'}
-//);
 
 /**
  * User Schema
@@ -106,8 +69,5 @@ var UserSchema = new Schema({
     }
 });
 
-
-
 module.exports = mongoose.model('Category', CategorySchema);
-//mongoose.model('Item', ItemSchema);
 mongoose.model('User', UserSchema);

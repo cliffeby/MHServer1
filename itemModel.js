@@ -62,52 +62,8 @@ var ItemSchema = new Schema({
         default: '',
         trim: true
     }
-},
-    {collections: 'allItems'}
-);
-
-/**
- * User Schema
- */
-var UserSchema = new Schema({
-    created: {
-        type: Date,
-        default: Date.now
-    },
-    firstName: {
-        type: String,
-        trim: true,
-        default: ''
-    },
-    lastName: {
-        type: String,
-        trim: true,
-        default: ''
-    },
-    displayName: {
-        type: String,
-        trim: true
-    },
-    email: {
-        type: String,
-        trim: true,
-        default: '',
-        match: [/.+\@.+\..+/, 'Please fill a valid email address']
-    },
-    username: {
-        type: String,
-        unique: 'Username already exists',
-        required: 'Please fill in a username',
-        trim: true
-    },
-    password: {
-        type: String,
-        default: ''
-    }
 });
 
 
-
 module.exports = mongoose.model('Item', ItemSchema);
-//mongoose.model('Item', ItemSchema);
-//mongoose.model('User', UserSchema);
+
