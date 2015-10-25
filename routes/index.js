@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
   res.render('index', {title: 'Express'});
 });
 /* GET cats page. */
-router.get('/categories', function (req, res, next) {
+router.get('/api/categories', function (req, res, next) {
   Category.find({}, function (err, categories) {
     if (err) res.status(400).send(err);
     else {
@@ -18,7 +18,7 @@ router.get('/categories', function (req, res, next) {
 
 });
 ///* GET Items page. */
-router.get('/items', function (req, res, next) {
+router.get('/api/items', function (req, res, next) {
   Item.find(function (err, allItems) {
     if (err) res.status(400).send(err);
     else {
@@ -26,5 +26,28 @@ router.get('/items', function (req, res, next) {
     }
   });
 });
+
+///* GET single Item */
+router.get('/api/items/:itemId', function (req, res, next) {
+  Item.findById(req.params.itemId)
+      .exec(function (err, item) {
+    if (err) res.status(400).send(err);
+    else {
+      res.send(item);
+    }
+  });
+});
+
+///* GET single Item */
+router.delete=function (req, res, next) {
+  var item = req.item;
+  item.remove(function (err) {
+    if(err){
+    res.status(400).send(err)}
+        else {
+          res.send(item);
+        }
+
+})};
 
 module.exports = router;
