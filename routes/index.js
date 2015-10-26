@@ -28,7 +28,7 @@ router.get('/api/items', function (req, res, next) {
 });
 
 ///* GET single Item */
-router.get('/api/items/:itemId', function (req, res, next) {
+router.get('/api/item/:itemId', function (req, res, next) {
   Item.findById(req.params.itemId)
       .exec(function (err, item) {
     if (err) res.status(400).send(err);
